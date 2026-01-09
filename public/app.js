@@ -1,6 +1,9 @@
 /* eslint-env browser */
 /* global document, window, localStorage */
-
+// tämä on tseti komentti
+// tämä on myös testi kommentti
+// tämä on kolmas testi kommentti
+// tämä on neljäs testi kommentti
 /**
  * @typedef {Object} Task
  * @property {string} id
