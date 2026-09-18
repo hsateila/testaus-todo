@@ -51,3 +51,12 @@ build/
 *.temp
 .cache/
 
+# AI assistant local config/memory (personal to each contributor's tooling choice)
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.cursorrules
+.windsurfrules
+.github/copilot-instructions.md
+AGENTS.md
+
