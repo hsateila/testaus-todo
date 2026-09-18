@@ -41,13 +41,23 @@ A minimal full-stack JavaScript Todo application intended for learning unit test
 ├─ public/
 │  ├─ index.html     # UI markup
 │  ├─ styles.css     # styling
-│  └─ app.js         # localStorage CRUD logic
+│  ├─ taskStore.js   # pure task logic (no DOM) - unit test this
+│  └─ app.js         # DOM wiring: event listeners, rendering
+├─ tests/            # Vitest unit tests
 ├─ server.js         # Express static server + health/version
+├─ vitest.config.js
 ├─ package.json
 └─ README.md
 ```
 
-### Notes for the testing phase (later)
+### Notes for the testing phase
 
-- Unit tests (Vitest): pure functions and DOM interactions in `public/app.js` can be factored further if needed.
+- Unit tests (Vitest): the functions in `public/taskStore.js` (`createTask`, `updateTask`,
+  `toggleTaskCompletion`, `sortTasks`, `escapeHtml`, `statusLabel`, `loadTasks`, `saveTasks`)
+  are plain, exported, DOM-independent functions - import them directly in a
+  `tests/taskStore.test.js` file and test them with Vitest, following the same
+  "it should ..." / Arrange-Act-Assert style as the course instructions.
+  `public/app.js` only wires the DOM to `taskStore.js` and is intentionally left out of
+  unit test scope.
+- Run tests with `npm test` (single run) or `npm run test:watch` (watch mode).
 - E2E tests (Cypress): target user flows—create, update, complete/undo, delete; use `/health` to check server readiness.
