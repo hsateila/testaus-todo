@@ -61,3 +61,17 @@ A minimal full-stack JavaScript Todo application intended for learning unit test
   unit test scope.
 - Run tests with `npm test` (single run) or `npm run test:watch` (watch mode).
 - E2E tests (Cypress): target user flows—create, update, complete/undo, delete; use `/health` to check server readiness.
+
+### Automated testing
+
+GitHub Actions runs the unit and end-to-end test suites on every push and pull request.
+To run the same checks locally:
+
+```bash
+npm run test:unit
+npm start
+npm run test:e2e
+```
+
+The workflow is defined in `.github/workflows/tests.yml`. Cypress starts against
+`http://localhost:5173` after the application is ready.
